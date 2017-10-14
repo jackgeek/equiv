@@ -58,6 +58,17 @@ describe('equiv', () => {
 		expect(equiv('bar', 'foo', substitute)).to.be.true;
 		expect(substitutedValues).to.deep.equal(['bar', 'foo']);
 	});
+
+	it('should allow currying the substitute function', () => {
+		const substitutedValues = [];
+		function substitute(value) {
+			substitutedValues.push(value);
+			return 'foo';
+		}
+		const curried = equiv(substitute);
+		expect(curried('bar', 'foo')).to.be.true;
+		expect(substitutedValues).to.deep.equal(['bar', 'foo']);
+	});
 });
 
 function toString(a) {

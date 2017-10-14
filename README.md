@@ -50,8 +50,17 @@ function defaultSubstitute(a) {
 # Substitute example
 
 ```javascript
-equiv('foo', 'bar', () => 'foo'); // true
-equiv(true, 'true', (value) => typeof value !== 'string' ? value.toString() : value); // true
+equiv('foo', 'bar', () => 'foo') // true
+equiv(true, 'true', (value) => typeof value !== 'string' ? value.toString() : value) // true
+```
+
+# Currying the substitute function
+
+The substitute function may be curried by passing it to equiv as the first and only parameter
+
+```javascript
+const stringEquiv = equiv((value) => typeof value !== 'string' ? value.toString() : value);
+stringEquiv(null, 'null'); // true
 ```
 
 # License

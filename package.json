@@ -1,6 +1,6 @@
 {
 	"name": "equiv",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Utility for comparing two values and determining if they are equivalent",
 	"main": "equiv.js",
 	"scripts": {

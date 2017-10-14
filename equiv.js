@@ -1,6 +1,16 @@
 'use strict';
 
-module.exports = equivalent;
+module.exports = equiv;
+
+function equiv(substitute) {
+	if (typeof substitute === 'function' && arguments.length === 1) {
+		// curry
+		return function(a, b) {
+			return equivalent(a, b, substitute);
+		};
+	}
+	return equivalent.apply(this, arguments);
+}
 
 function equivalent(a, b, substitute = defaultSubstitute) {
 	if (a === b) {
