@@ -60,7 +60,7 @@ The substitute function may be curried by passing it to equiv as the first and o
 
 ```javascript
 const stringEquiv = equiv((value) => typeof value !== 'string' ? value.toString() : value);
-stringEquiv(null, 'null'); // true
+stringEquiv(true, 'true'); // true
 ```
 
 # License
