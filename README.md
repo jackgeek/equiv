@@ -21,8 +21,9 @@ equiv(false, 'false') // true
 equiv(null, 'null') // true
 equiv(undefined, 'undefined') // true
 equiv(NaN, NaN) // false
-equiv([1, 2, 3], ["1", "2", "3"]) // true
+equiv([1, 2, 3], ['1', '2', '3']) // true
 equiv({ a: 1, b: 2 }, { b: 2, a: 1 }) // true
+equiv({ a: [ { b: 1 } ] }, { a: [ { b: '1' } ] }) // true
 ```
 
 # Substitute function
@@ -33,16 +34,16 @@ The default substitute function converts all primitives to strings with the exce
 
 ```javascript
 function defaultSubstitute(a) {
-	// NaN check
-	if (a !== a) {
-		return a;
-	}
-	if (a === void 0) return 'undefined';
-	if (a === null) return 'null';
-	if (typeof a === 'object') {
-		return a;
-	}
-	return a.toString();
+  // NaN check
+  if (a !== a) {
+    return a;
+  }
+  if (a === void 0) return 'undefined';
+  if (a === null) return 'null';
+  if (typeof a === 'object') {
+    return a;
+  }
+  return a.toString();
 }
 ```
 
@@ -52,10 +53,6 @@ function defaultSubstitute(a) {
 equiv('foo', 'bar', () => 'foo'); // true
 equiv(true, 'true', (value) => typeof value !== 'string' ? value.toString() : value); // true
 ```
-
-# Module formats
-
-equiv is exported in Common JS and AMD module formats as well as a global `equiv`.
 
 # License
 MIT
