@@ -57,14 +57,14 @@ function substituteStrings(a) {
 
 const stringEquiv = equiv(substituteStrings);
 
-equiv(16384, '16384') // true
-equiv(false, 'false') // true
-equiv(null, 'null') // true
-equiv(undefined, 'undefined') // true
-equiv(NaN, NaN) // false
-equiv([1, 2, 3], ['1', '2', '3']) // true
-equiv({ a: 1, b: 2 }, { b: '2', a: '1' }) // true
-equiv({ a: [ { b: 1 } ] }, { a: [ { b: '1' } ] }) // true
+stringEquiv(16384, '16384') // true
+stringEquiv(false, 'false') // true
+stringEquiv(null, 'null') // true
+stringEquiv(undefined, 'undefined') // true
+stringEquiv(NaN, NaN) // false
+stringEquiv([1, 2, 3], ['1', '2', '3']) // true
+stringEquiv({ a: 1, b: 2 }, { b: '2', a: '1' }) // true
+stringEquiv({ a: [ { b: 1 } ] }, { a: [ { b: '1' } ] }) // true
 ```
 
 # License
