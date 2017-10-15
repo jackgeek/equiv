@@ -63,14 +63,5 @@ function objectEquivalent(a, b) {
 }
 
 function defaultSubstitute(a) {
-	// NaN check
-	if (a !== a) {
-		return a;
-	}
-	if (a === void 0) return 'undefined';
-	if (a === null) return 'null';
-	if (typeof a === 'object') {
-		return a;
-	}
-	return a.toString();
+	return a;
 }

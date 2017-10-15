@@ -3,19 +3,15 @@ const equiv = require('../equiv');
 
 const equivalentPairs = [
 	[null, null],
-	[null, 'null'],
 	[undefined, undefined],
-	[undefined, 'undefined'],
 	[1, 1],
 	[true, true],
 	[false, false],
-	[true, 'true'],
-	[false, 'false'],
 	['foo', 'foo'],
-	[[1, 2, 3], ['1', '2', '3']],
-	[{ a: 1, b: 2 }, { a: '1', b: '2' }],
-	[{ a: [1, 2, 3] }, { a: ['1', '2', '3'] }],
-	[{ a: [{ a: 1 }] }, { a: [{ a: '1' }] }],
+	[[1, 2, 3], [1, 2, 3]],
+	[{ a: 1, b: 2 }, { a: 1, b: 2 }],
+	[{ a: [1, 2, 3] }, { a: [1, 2, 3] }],
+	[{ a: [{ a: 1 }] }, { a: [{ a: 1 }] }],
 ];
 
 function perms(values) {
